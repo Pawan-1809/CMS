@@ -1,53 +1,256 @@
-# College Management System (`CMS`)
+<div align="center">
 
-Fresh Django rebuild of the Heritage College Management Portal inside `CMS`, preserving the original multi-role structure, AdminLTE UI, Chart.js dashboards, and role-based workflows.
+# 🎓 Heritage College Management Portal
 
-## Stack
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00D4AA&center=true&vCenter=true&width=435&lines=Student+Management+System;Built+with+Django+%F0%9F%90%8D;Heritage+Institute+of+Technology" alt="Typing SVG" />
 
-- Python 3.11
-- Django 3.2.25
-- SQLite by default, PostgreSQL-ready through `DATABASE_URL`
-- Bootstrap + AdminLTE + Chart.js
-- WhiteNoise for static files
+[![Django](https://img.shields.io/badge/Django-3.2.25-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
 
-## Project Structure
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-live-demo">Live Demo</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-contributors">Contributors</a>
+</p>
 
-```text
-CMS/
-├── .venv/
-├── manage.py
-├── requirements.txt
-├── .env.example
-├── static/
-├── staticfiles/
-├── media/
-├── student_management_system/
-└── student_management_app/
-```
+---
 
-## Run Locally
+🌟 **A comprehensive college management system for Heritage Institute of Technology** 🌟
 
-```powershell
-cd D:\Desktop\PROJECTS\College_management_portal\CMS
-.venv\Scripts\activate
+</div>
+
+## 🚀 Live Demo
+
+<div align="center">
+
+### 🌐 **[college-management-portal.onrender.com](https://college-management-portal.onrender.com)**
+
+![Dashboard Preview](https://img.shields.io/badge/Status-Live-brightgreen?style=for-the-badge)
+
+**Test Credentials:**
+
+- 👑 **Admin**: `admin@college.edu` / `admin123`
+- 👨‍🏫 **Staff**: `staff@college.edu` / `staff123`
+- 👨‍🎓 **Student**: `student@college.edu` / `student123`
+
+</div>
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="33%">
+
+### 👑 **Admin/HOD Panel**
+
+- 📈 **Dashboard Analytics** - Performance charts & insights
+- 👥 **Staff Management** - Add, update, delete staff
+- 👨‍🎓 **Student Management** - Complete student lifecycle
+- 📚 **Course Management** - Academic program control
+- 📖 **Subject Management** - Curriculum organization
+- 📅 **Session Management** - Academic year planning
+- 📊 **Attendance Overview** - Monitor all classes
+- 💬 **Feedback System** - Review & respond
+- 🏖️ **Leave Management** - Approve/reject requests
+
+</td>
+<td width="33%">
+
+### 👨‍🏫 **Staff/Teacher Portal**
+
+- 📉 **Personal Dashboard** - Teaching insights
+- ✅ **Attendance Tracking** - Mark & update attendance
+- 📝 **Result Management** - Grade & assess students
+- 📊 **Performance Reports** - Student progress
+- 🏖️ **Leave Application** - Request time off
+- 💬 **Feedback Channel** - Communicate with HOD
+- 📚 **Subject Overview** - Teaching assignments
+- 📅 **Schedule View** - Class timetables
+
+</td>
+<td width="33%">
+
+### 👨‍🎓 **Student Dashboard**
+
+- 📈 **Academic Dashboard** - Personal progress
+- 📊 **Attendance View** - Track your presence
+- 🏆 **Results Portal** - Grades & assessments
+- 📚 **Subject Details** - Course information
+- 📅 **Academic Calendar** - Important dates
+- 🏖️ **Leave Request** - Apply for absence
+- 💬 **Feedback System** - Share concerns
+- 📝 **Profile Management** - Update personal info
+
+</td>
+</tr>
+</table>
+
+## 🚀 Quick Start
+
+### 💻 **Local Development**
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Pawan-1809/College_management_portal.git
+cd College_management_portal
+
+# 2. Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Environment setup
+cp .env.example .env
+# Edit .env file with your configuration
+
+# 5. Run migrations
 python manage.py migrate
-python manage.py populate_demo_portal
+
+# 6. Create superuser (optional)
+python manage.py createsuperuser
+
+# 7. Start development server
 python manage.py runserver
 ```
 
-## Demo Credentials
+### 📦 **One-Click Deploy**
 
-- Admin: `admin@college.edu` / `admin123`
-- Staff: `staff@college.edu` / `staff123`
-- Student: `student@college.edu` / `student123`
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Pawan-1809/College_management_portal)
 
-## Notes
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pawan-1809/College_management_portal)
 
-- Static assets have already been collected successfully.
-- Demo data creates one course, one subject, one staff, one student, attendance, leave, feedback, and result records so the charts render immediately.
-- For Render, use `build.sh` as the build command and the `render.yaml` blueprint in this repo root.
-- Render starts the site with Gunicorn against Django WSGI and uses the app's production static storage.
-- `SECURE_PROXY_SSL_HEADER` is already configured for Render's proxy, so HTTPS redirects and secure cookies work correctly there.
-- Render also sets a conservative HSTS value by default; you can raise it later after you are happy with the live domain setup.
-- If you deploy on Render with the default `.onrender.com` URL, settings automatically trust `RENDER_EXTERNAL_HOSTNAME`.
-- If you later attach a custom domain, add that domain to `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` in Render environment variables.
+## 🛠️ Tech Stack
+
+<div align="center">
+
+| Category       | Technology                                                                                                                                                                                                                                                                                                        | Purpose        |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| **Backend**    | ![Django](https://img.shields.io/badge/-Django-092E20?style=flat-square&logo=django&logoColor=white)                                                                                                                                                                                                              | Web Framework  |
+| **Database**   | ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white) ![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)                                                                                             | Data Storage   |
+| **Frontend**   | ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | User Interface |
+| **Styling**    | ![Bootstrap](https://img.shields.io/badge/-Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white)                                                                                                                                                                                                     | UI Components  |
+| **Deployment** | ![Render](https://img.shields.io/badge/-Render-46E3B7?style=flat-square&logo=render&logoColor=white)                                                                                                                                                                                                              | Cloud Hosting  |
+| **Storage**    | ![WhiteNoise](https://img.shields.io/badge/-WhiteNoise-9146FF?style=flat-square)                                                                                                                                                                                                                                  | Static Files   |
+
+</div>
+
+## 📁 Project Structure
+
+```
+College-management-portal/
+├── 📁 student_management_app/
+│   ├── 👑 management/commands/     # Custom Django commands
+│   ├── 📋 templates/           # HTML templates
+│   ├── 🔄 migrations/          # Database migrations
+│   └── 📝 models.py            # Database models
+├── 🎨 static/                  # Static files (CSS, JS, Images)
+├── 🗺️ media/                   # User uploaded files
+├── ⚙️ student_management_system/ # Main project settings
+└── 📦 requirements.txt         # Python dependencies
+```
+
+## 🔧 Configuration
+
+<details>
+<summary><b>🔍 Click to expand environment variables</b></summary>
+
+```env
+# Django Configuration
+SECRET_KEY=your-secret-key-here
+DEBUG=True  # Set to False in production
+ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
+
+# Database (SQLite for development)
+DB_ENGINE=django.db.backends.sqlite3
+DB_NAME=db.sqlite3
+
+# Security Settings
+SECURE_SSL_REDIRECT=False  # Set to True in production
+SESSION_COOKIE_SECURE=False
+CSRF_COOKIE_SECURE=False
+```
+
+</details>
+
+## 🛡️ Security Features
+
+- 🔐 **Email-based Authentication** - Secure login system
+- 👥 **Role-based Access Control** - Admin, Staff, Student roles
+- 🌐 **CSRF Protection** - Cross-site request forgery prevention
+- 📜 **Input Validation** - SQL injection protection
+- 🔒 **Session Management** - Secure session handling
+- 🏆 **Production Ready** - SSL/HTTPS support
+
+## 👥 Contributors
+
+<div align="center">
+
+### 🌟 **Development Team**
+
+<table>
+<tr>
+  <td align="center">
+    <img src="https://github.com/Pawan-1809.png" width="100px" alt="Pawan Kumar"/><br>
+    <b>Pawan Kumar</b><br>
+    👑 <i>Project Lead</i><br>
+    <a href="https://github.com/Pawan-1809">🔗 GitHub</a>
+  </td>
+  <td align="center">
+    <img src="https://via.placeholder.com/100x100/0066cc/ffffff?text=AK" width="100px" alt="Ankit Raj"/><br>
+    <b>Ankit Raj</b><br>
+    💻 <i>Full Stack Developer</i><br>
+  </td>
+  <td align="center">
+    <img src="https://via.placeholder.com/100x100/009933/ffffff?text=PS" width="100px" alt="Prince Sen Gupta"/><br>
+    <b>Prince Sen Gupta</b><br>
+    🎨 <i>Frontend Developer</i><br>
+  </td>
+  <td align="center">
+    <img src="https://via.placeholder.com/100x100/cc3300/ffffff?text=MV" width="100px" alt="Mahima Vasisth"/><br>
+    <b>Mahima Vasisth</b><br>
+    📊 <i>Backend Developer</i><br>
+  </td>
+</tr>
+</table>
+
+### 🏠 **Heritage Institute of Technology**
+
+_Design Thinking and Innovation Lab_
+
+---
+
+### 💖 **Support the Project**
+
+If you find this project helpful, please consider:
+
+[![GitHub Stars](https://img.shields.io/github/stars/Pawan-1809/College_management_portal?style=social)](https://github.com/Pawan-1809/College_management_portal/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Pawan-1809/College_management_portal?style=social)](https://github.com/Pawan-1809/College_management_portal/network/members)
+
+</div>
+
+## 📝 License
+
+<div align="center">
+
+**MIT License** © 2024 **Pawan Kumar**
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  <b>🎆 Made with ❤️ in Kolkata, India</b><br>
+  <i>Heritage Institute of Technology</i>
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2000&pause=1000&color=00D4AA&center=true&vCenter=true&width=600&lines=Thank+you+for+visiting+our+project!;%E2%AD%90+Star+us+on+GitHub+if+you+found+it+helpful!;Built+with+Django+and+%E2%9D%A4%EF%B8%8F+by+Heritage+Team" alt="Footer Typing SVG" />
+</p>
+
+</div>
