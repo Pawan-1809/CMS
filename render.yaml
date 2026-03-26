@@ -33,3 +33,5 @@ services:
         value: false
       - key: SECURE_HSTS_PRELOAD
         value: false
+      - key: SEED_DEMO_DATA
+        value: true
