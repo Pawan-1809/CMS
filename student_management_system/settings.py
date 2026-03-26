@@ -12,6 +12,14 @@ def env_bool(name: str, default: bool = False) -> bool:
     return os.environ.get(name, str(default)).strip().lower() in {"1", "true", "yes", "on"}
 
 
+def env_int(name: str, default: int = 0) -> int:
+    value = os.environ.get(name, str(default)).strip()
+    try:
+        return int(value)
+    except ValueError:
+        return default
+
+
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
     "django-insecure-cms-local-development-secret-key-change-me",
@@ -140,6 +148,9 @@ LOGIN_URL = 'login'
 SECURE_SSL_REDIRECT = env_bool("SECURE_SSL_REDIRECT", False)
 SESSION_COOKIE_SECURE = env_bool("SESSION_COOKIE_SECURE", False)
 CSRF_COOKIE_SECURE = env_bool("CSRF_COOKIE_SECURE", False)
+SECURE_HSTS_SECONDS = env_int("SECURE_HSTS_SECONDS", 0)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env_bool("SECURE_HSTS_INCLUDE_SUBDOMAINS", False)
+SECURE_HSTS_PRELOAD = env_bool("SECURE_HSTS_PRELOAD", False)
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

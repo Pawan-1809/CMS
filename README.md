@@ -48,5 +48,6 @@ python manage.py runserver
 - For Render, use `build.sh` as the build command and the `render.yaml` blueprint in this repo root.
 - Render starts the site with Gunicorn against Django WSGI and uses the app's production static storage.
 - `SECURE_PROXY_SSL_HEADER` is already configured for Render's proxy, so HTTPS redirects and secure cookies work correctly there.
+- Render also sets a conservative HSTS value by default; you can raise it later after you are happy with the live domain setup.
 - If you deploy on Render with the default `.onrender.com` URL, settings automatically trust `RENDER_EXTERNAL_HOSTNAME`.
 - If you later attach a custom domain, add that domain to `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` in Render environment variables.

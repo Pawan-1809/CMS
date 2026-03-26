@@ -27,3 +27,9 @@ services:
         value: true
       - key: CSRF_COOKIE_SECURE
         value: true
+      - key: SECURE_HSTS_SECONDS
+        value: 3600
+      - key: SECURE_HSTS_INCLUDE_SUBDOMAINS
+        value: false
+      - key: SECURE_HSTS_PRELOAD
+        value: false
