@@ -8,7 +8,20 @@ def render_public_home(request):
     return render(request, "index.html")
 
 
+def redirect_user_dashboard(user):
+    user_type = str(getattr(user, "user_type", ""))
+    if user_type == "1":
+        return redirect("admin_home")
+    if user_type == "2":
+        return redirect("staff_home")
+    if user_type == "3":
+        return redirect("student_home")
+    return redirect("login")
+
+
 def render_login_page(request):
+    if request.user.is_authenticated:
+        return redirect_user_dashboard(request.user)
     return render(request, "login.html")
 
 
@@ -27,17 +40,7 @@ def process_login_request(request):
         return redirect("login")
 
     login(request, user)
-
-    user_type = getattr(user, "user_type", None)
-    if user_type == "1":
-        return redirect("admin_home")
-    if user_type == "2":
-        return redirect("staff_home")
-    if user_type == "3":
-        return redirect("student_home")
-
-    messages.error(request, "Invalid Login!")
-    return redirect("login")
+    return redirect_user_dashboard(user)
 
 
 def fetch_user_details(request):
