@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: cms
+    runtime: python
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: python -m gunicorn student_management_system.wsgi:application
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: DEBUG
+        value: false
+      - key: FORCE_SQLITE
+        value: false
+      - key: DB_SSL_REQUIRE
+        value: true
+      - key: WEB_CONCURRENCY
+        value: 4
+      - key: SECURE_SSL_REDIRECT
+        value: true
+      - key: SESSION_COOKIE_SECURE
+        value: true
+      - key: CSRF_COOKIE_SECURE
+        value: true
