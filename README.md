@@ -5,7 +5,7 @@
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00D4AA&center=true&vCenter=true&width=435&lines=Student+Management+System;Built+with+Django+%F0%9F%90%8D;Heritage+Institute+of+Technology" alt="Typing SVG" />
 
 [![Django](https://img.shields.io/badge/Django-3.2.25-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
-[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
 
@@ -119,12 +119,6 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-### 📦 **One-Click Deploy**
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Pawan-1809/College_management_portal)
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pawan-1809/College_management_portal)
-
 ## 🛠️ Tech Stack
 
 <div align="center">
@@ -187,44 +181,6 @@ CSRF_COOKIE_SECURE=False
 - 🔒 **Session Management** - Secure session handling
 - 🏆 **Production Ready** - SSL/HTTPS support
 
-## 👥 Contributors
-
-<div align="center">
-
-### 🌟 **Development Team**
-
-<table>
-<tr>
-  <td align="center">
-    <img src="https://github.com/Pawan-1809.png" width="100px" alt="Pawan Kumar"/><br>
-    <b>Pawan Kumar</b><br>
-    👑 <i>Project Lead</i><br>
-    <a href="https://github.com/Pawan-1809">🔗 GitHub</a>
-  </td>
-  <td align="center">
-    <img src="https://via.placeholder.com/100x100/0066cc/ffffff?text=AK" width="100px" alt="Ankit Raj"/><br>
-    <b>Ankit Raj</b><br>
-    💻 <i>Full Stack Developer</i><br>
-  </td>
-  <td align="center">
-    <img src="https://via.placeholder.com/100x100/009933/ffffff?text=PS" width="100px" alt="Prince Sen Gupta"/><br>
-    <b>Prince Sen Gupta</b><br>
-    🎨 <i>Frontend Developer</i><br>
-  </td>
-  <td align="center">
-    <img src="https://via.placeholder.com/100x100/cc3300/ffffff?text=MV" width="100px" alt="Mahima Vasisth"/><br>
-    <b>Mahima Vasisth</b><br>
-    📊 <i>Backend Developer</i><br>
-  </td>
-</tr>
-</table>
-
-### 🏠 **Heritage Institute of Technology**
-
-_Design Thinking and Innovation Lab_
-
----
-
 ### 💖 **Support the Project**
 
 If you find this project helpful, please consider:
@@ -234,19 +190,9 @@ If you find this project helpful, please consider:
 
 </div>
 
-## 📝 License
-
-<div align="center">
-
-**MIT License** © 2024 **Pawan Kumar**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 <p align="center">
-  <b>🎆 Made with ❤️ in Kolkata, India</b><br>
-  <i>Heritage Institute of Technology</i>
+  <b>🎆 Made with Efforts </b><br>
+  <i>for Heritage Institute of Technology</i>
 </p>
 
 <p align="center">
