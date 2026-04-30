@@ -9,3 +9,4 @@ staticfiles/
 .mypy_cache/
 .DS_Store
 Thumbs.db
+ARCHITECTURE.md
