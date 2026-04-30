@@ -1,16 +1,18 @@
 import os
 from pathlib import Path
-
 import dj_database_url
 from dotenv import load_dotenv
+
+
+
+
+#Path and Environment
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
-
 def env_bool(name: str, default: bool = False) -> bool:
     return os.environ.get(name, str(default)).strip().lower() in {"1", "true", "yes", "on"}
-
 
 def env_int(name: str, default: int = 0) -> int:
     value = os.environ.get(name, str(default)).strip()
@@ -20,11 +22,19 @@ def env_int(name: str, default: int = 0) -> int:
         return default
 
 
+
+
+
+
+#Security Config..
+
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
     "django-insecure-cms-local-development-secret-key-change-me",
 )
+
 DEBUG = env_bool("DEBUG", True)
+
 ALLOWED_HOSTS = [host.strip() for host in os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",") if host.strip()]
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME", "").strip()
 
@@ -40,6 +50,20 @@ if RENDER_EXTERNAL_HOSTNAME:
     render_origin = f"https://{RENDER_EXTERNAL_HOSTNAME}"
     if render_origin not in CSRF_TRUSTED_ORIGINS:
         CSRF_TRUSTED_ORIGINS.append(render_origin)
+
+SECURE_SSL_REDIRECT = env_bool("SECURE_SSL_REDIRECT", False)
+SESSION_COOKIE_SECURE = env_bool("SESSION_COOKIE_SECURE", False)
+CSRF_COOKIE_SECURE = env_bool("CSRF_COOKIE_SECURE", False)
+SECURE_HSTS_SECONDS = env_int("SECURE_HSTS_SECONDS", 0)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env_bool("SECURE_HSTS_INCLUDE_SUBDOMAINS", False)
+SECURE_HSTS_PRELOAD = env_bool("SECURE_HSTS_PRELOAD", False)
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+
+
+
+
+#Apps and files config..
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -85,6 +109,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'student_management_system.wsgi.application'
 
 
+
+
+
+
+#DB Config
+
 DATABASE_URL = os.environ.get("DATABASE_URL", "").strip()
 FORCE_SQLITE = env_bool("FORCE_SQLITE", False)
 
@@ -105,34 +135,47 @@ else:
     }
 
 
+
+
+
+
+#Auth and Password
+
+AUTH_USER_MODEL = 'student_management_app.CustomUser'
+AUTHENTICATION_BACKENDS = ['student_management_app.email_login_backend.EmailBackEnd']
+LOGIN_URL = 'login'
+
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
+
+
+
+#Internationalisation
 
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Kolkata'
-
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 APPEND_SLASH = True
 
 
+
+
+
+#Static and Media files handling
+
+
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
 if DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 else:
@@ -141,17 +184,8 @@ else:
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-AUTH_USER_MODEL = 'student_management_app.CustomUser'
-AUTHENTICATION_BACKENDS = ['student_management_app.email_login_backend.EmailBackEnd']
 
-LOGIN_URL = 'login'
 
-SECURE_SSL_REDIRECT = env_bool("SECURE_SSL_REDIRECT", False)
-SESSION_COOKIE_SECURE = env_bool("SESSION_COOKIE_SECURE", False)
-CSRF_COOKIE_SECURE = env_bool("CSRF_COOKIE_SECURE", False)
-SECURE_HSTS_SECONDS = env_int("SECURE_HSTS_SECONDS", 0)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = env_bool("SECURE_HSTS_INCLUDE_SUBDOMAINS", False)
-SECURE_HSTS_PRELOAD = env_bool("SECURE_HSTS_PRELOAD", False)
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -156,16 +156,14 @@ College-management-portal/
 
 ```env
 # Django Configuration
-SECRET_KEY=your-secret-key-here
-DEBUG=True  # Set to False in production
-ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
+SECRET_KEY=your-secret-key
 
 # Database (SQLite for development)
 DB_ENGINE=django.db.backends.sqlite3
 DB_NAME=db.sqlite3
 
 # Security Settings
-SECURE_SSL_REDIRECT=False  # Set to True in production
+SECURE_SSL_REDIRECT=False
 SESSION_COOKIE_SECURE=False
 CSRF_COOKIE_SECURE=False
 ```
@@ -179,7 +177,6 @@ CSRF_COOKIE_SECURE=False
 - 🌐 **CSRF Protection** - Cross-site request forgery prevention
 - 📜 **Input Validation** - SQL injection protection
 - 🔒 **Session Management** - Secure session handling
-- 🏆 **Production Ready** - SSL/HTTPS support
 
 ### 💖 **Support the Project**
 
